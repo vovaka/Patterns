@@ -1,5 +1,10 @@
 package creational.factory;
 
-public class Triangle {
+public class Triangle implements Shape {
+
+	@Override
+	public void draw() {
+		System.out.println("drawing triangle");
+	}
 
 }
