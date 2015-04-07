@@ -1,5 +1,9 @@
 package structural.decorator;
 
+/**
+ * http://java.dzone.com/articles/design-patterns-decorator
+ *
+ */
 public class DecoratorRunner {
 
 	public static void main(String[] args) {
