@@ -1,19 +1,30 @@
 package behavioral.chainOfResponsibility;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class EmailProcessor {
 
-	private EmailHadler previousEmailHandler;
+	private EmailHadler currentHandler;
+
+	private static int handlerCount = 0;
+	private Map<Integer, EmailHadler> map = new HashMap<Integer, EmailHadler>();
 
 	void addHandlers(EmailHadler emailHandler) {
-		if (previousEmailHandler != null) {
-			previousEmailHandler.setNext(emailHandler);
-		} else {
-			previousEmailHandler = emailHandler;
+		handlerCount++;
+		if (map.isEmpty()) {
+			map.put(handlerCount, emailHandler);
+			currentHandler = emailHandler;
+			return;
+		}
+		if (map.size() >= 1) {
+			map.get(handlerCount - 1).setNext(emailHandler);
+			map.put(handlerCount, emailHandler);
 		}
 	}
 
 	void handleRequest(Email email) {
-		previousEmailHandler.handleResponse(email);
+		currentHandler.handleResponse(email);
 	}
 
 }

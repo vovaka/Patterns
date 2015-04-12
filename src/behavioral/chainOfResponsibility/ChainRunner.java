@@ -15,8 +15,9 @@ public class ChainRunner {
 		EmailProcessor emailProcessor = new EmailProcessor();
 		emailProcessor.addHandlers(new BusinessEmailHandler());
 		emailProcessor.addHandlers(new GmailHandler());
+		emailProcessor.addHandlers(new JunkHandler());
 
-		Email email = new Email("gmail.com");
+		Email email = new Email("junk.com");
 
 		emailProcessor.handleRequest(email);
 
