@@ -2,6 +2,10 @@ package structural.flyweight;
 
 import structural.flyweight.IFlyweight.Color;
 
+/**
+ * http://java.dzone.com/articles/design-patterns-flyweight
+ * 
+ */
 public class FlyweightRunner {
 	public static void main(String[] args) {
 		Flyweightfactory factory = new Flyweightfactory();
